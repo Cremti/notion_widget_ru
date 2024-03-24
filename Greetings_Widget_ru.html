@@ -110,7 +110,9 @@ h1 {
 <script>
     function date() {
 var today = new Date();
-document.getElementById('date').innerHTML = today.toDateString();
+var dayOfWeek = weekday[today.getDay()];
+var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear();
+document.getElementById('date').innerHTML = date;
 }
 
 
@@ -125,7 +127,7 @@ if (hrs < 12)
     else if (hrs >= 12 && hrs <= 17)
         greet = 'Добрый день, Ира ';
     else if (hrs >= 17 && hrs <= 24)
-        greet = 'Добрйы вечер, ира  ';
+        greet = 'Добрый вечер, Ира  ';
 // console.log(today.toLocaleTimeString());
 document.getElementById('greet').innerHTML = greet;
 document.getElementById('hour').innerHTML = hour;
@@ -156,7 +158,15 @@ date();
 clock();
 setTimeout(dateTime, 500);
 }
-
+    
+var weekday = new Array(7);
+weekday[0] = "Воскресенье";
+weekday[1] = "Понедельник";
+weekday[2] = "Вторник";
+weekday[3] = "Среда";
+weekday[4] = "Четверг";
+weekday[5] = "Пятница";
+weekday[6] = "Суббота";
 dateTime()
 // END
 </script>
